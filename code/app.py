@@ -3,6 +3,7 @@ from flask import Flask, request
 app = Flask(__name__)
 
 # Form page to submit text
+# This part is an html of the submission_page
 @app.route('/')
 def submission_page():
     return '''
@@ -29,7 +30,7 @@ def predictor():
     # TODO: Implement here the prediction: 1 - upload your models
     #                                      2 - apply them on the input data (remember to change the type of the data i.e from
     #                                               string to float etc...)
-    return "The predicted value is", prediction
+    return "The predicted value is ", prediction #"prediction" is the prediction from your model ...in case you have problems I will help you tomorrow
 
 
 if __name__ == '__main__':
