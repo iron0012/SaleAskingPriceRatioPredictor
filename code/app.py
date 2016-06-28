@@ -2,11 +2,6 @@ from collections import Counter
 from flask import Flask, request
 app = Flask(__name__)
 
-
-def dict_to_html(d):
-    return '<br>'.join('{0}: {1}'.format(k, d[k]) for k in sorted(d))
-
-
 # Form page to submit text
 @app.route('/')
 def submission_page():
