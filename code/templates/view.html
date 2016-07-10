@@ -1,0 +1,18 @@
+<h2>Calculate the final price</h2>
+<img src="HouseCanary_Logo.jpg" alt="logo">
+<form method=post action="">
+<table>
+  {% for field in form %}
+    <tr>
+    <td>{{ field.label }}</td><td>{{ field }}</td>
+
+    </tr>
+  {% endfor %}
+</table>
+<p><input type=submit value=Compute></form></p>
+
+<p>
+{% if sale_price != None %}
+Our model estimates the sale price will be {{sale_price}}  which is {{ price_ratio }} times the asking price.</td>
+{% endif %}
+</p>

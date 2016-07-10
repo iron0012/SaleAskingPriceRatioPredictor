@@ -3,6 +3,9 @@ from nltk.stem.snowball import SnowballStemmer
 from nltk.stem import WordNetLemmatizer
 from nltk.corpus import stopwords
 import pandas as pd
+from wtforms import Form, FloatField, validators, StringField, IntegerField
+import cPickle as pickle
+
 
 WORD_PATTERN = re.compile("(^|\s+)([A-Za-z]+)")
 STEMMER = SnowballStemmer("english")
@@ -10,6 +13,37 @@ LEMMER = WordNetLemmatizer()
 
 #Combine two sets of stop words
 STOPWORDS = stopwords.words('english')
+filepath_zip = 'list_of_zip_codes'
+
+zip_codes = pickle.load(open(filepath_zip, 'rb'))
+
+
+
+
+
+
+
+class InputForm(Form):
+    text = StringField(
+        label='text', default="",
+        validators=[validators.InputRequired()])
+    number_of_bedrooms = IntegerField(
+        label='Number of bedrooms',
+        validators=[validators.InputRequired()])
+    number_of_bathrooms = IntegerField(
+        label='Number of bathrooms',
+        validators=[validators.InputRequired()])
+    home_size_sq_ft = FloatField(
+        label = 'Size of the home in square feet',
+        validators=[validators.InputRequired()])
+    zip_code = StringField(
+        label='Zip code', default="",
+        validators=[validators.InputRequired()])
+    current_listing_price = FloatField(
+        label='Current Listing price',
+        validators = [validators.AnyOf(zip_codes)])
+
+
 
 
 #Define tokenizers that do stemming only, lemmatizing only, and both
@@ -37,21 +71,11 @@ def create_dataframe_webapp(zip_codes,
                             home_size_sq_ft,
                             number_of_bedrooms,
                             number_of_bathrooms,
+                            current_listing_price,
                             vectorizer):
     '''Prepare a pandas dataframe with the input information with the right format for inserting into
     a trained Random Forest model to predict the sale_price to askling_price ratio.
-
-    1.  Recreate a dummyfied dataframe of all 71 zip codes in our data called df_zip.
-    2.  Pass the input text (agent's comments) into the the vectorizer transform function.
-        Combine them with the feature names (from the vectorizer object) and create a dataframe
-        called df_text.
-    3.  Create a dataframe that contains the user-input info of: a  number_of_bedrooms
-                                                                 b  number_of_bathrooms
-                                                                 c  home_size_sq_ft
-    4.  Concatenate the above three dataframes and return
-
-
-    Input:
+    input:
     zip_codes:  a LIST of zip codes that are in random forest model.
     non_text_features: a LIST of text of the names of the non-text features, e.g. 'home_size', 'number_of_bedrooms'.
     additional_stop_words:  a LIST of tokeized_expression that will be removed from the final input matrix.
@@ -65,33 +89,24 @@ def create_dataframe_webapp(zip_codes,
 
     vectorizer: vectorizer to convert input text of the agent's description to the vector of tekenized expressions.
 
-    Output:
-    df: A pandas dataframe that contains all the input data in a format ready to be input into the random forest regressor
-        predictor.
-
-
-
     '''
-    # Recreate a dummyfied dataframe of all 71 zip codes in our data called df_zip.
     df_zip = pd.DataFrame(index = [1], columns = zip_codes)
     df_zip.fillna(0, inplace = True)
 
-    #Pass the input text (agent's comments) into the the vectorizer transform function.
-    #Combine them with the feature names (from the vectorizer object) and create a dataframe called df_text.
     X_stem_lem = vectorizer.transform([input_text])
     features = vectorizer.get_feature_names()
     df_text = pd.DataFrame(X_stem_lem.toarray(), index = [1], columns = features)
     df_text.drop(additional_stop_words, axis = 1, inplace = True)
 
-
-    # Create a dataframe that contains the user-input info of: a  number_of_bedrooms
-    #                                                          b  number_of_bathrooms
-    #                                                          c  home_size_sq_ft
     df_nontxt = pd.DataFrame(index = [1], columns = non_text_features)
-    df_nontxt.set_value(1, non_text_features, [number_of_bedrooms, number_of_bathrooms, home_size_sq_ft])
+    df_nontxt.set_value(1, non_text_features, [home_size_sq_ft,
+                                               number_of_bedrooms,
+                                               number_of_bathrooms,
+                                               current_listing_price]
+                       )
     df_nontxt
 
-    #Concatenate the above three dataframes and return
     df = pd.concat([df_zip, df_text, df_nontxt],
                   axis = 1)
+
     return df
