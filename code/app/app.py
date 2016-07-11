@@ -9,7 +9,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 from flask import Flask, request, render_template
 import gzip
 from prediction_functions import *
-app = Flask(__name__,  static_url_path = "/./static", static_folder = "static")
+app = Flask(__name__)#,  static_url_path = "/./static", static_folder = "static")
 
 #load trained random forest
 filepath = 'rf_zip_full_dict_400_50_7.gzip'
@@ -51,59 +51,19 @@ def index():
 
         price_ratio = rf_zip_full_dict_400_50_7.predict(df.values)[0]
         sale_price =  price_ratio * form.current_listing_price.data
+        features_present_list = features_present(vectorizer, form.text.data)
+        features_present_list = [str(feature[0]) for feature in features_present_list if feature[1] > 0]
+        features_present_list = [feature for feature in features_present_list if feature not in additional_stop_words]
+        feature_importances_dict, feature_importances_list = create_feature_importance_dict(df, rf_zip_full_dict_400_50_7)
+        feature_dataframe = Create_text_feat_imp_Dataframe(features_present_list, feature_importances_dict)
     else:
         price_ratio = None
         sale_price = None
-
-    return render_template('view.html', form=form, price_ratio=price_ratio, sale_price=sale_price)
-
-
-#
-# def submission_page():
-#     return '''
-#         <form action="/predictor" method='POST' >
-#             Text <input type="text" name="text" /> </br>
-#             Rooms number <input type="text" name ="rooms" /> </br>
-#             Bathrooms number <input type="text" name ="bathrooms" /> </br>
-#             ZIP <input type="text" name ="zip" /> </br>
-#             Sqf <input type="text" name ="sqf" /> </br>
-#             Listing price <input type="text" name="input_price" /> </br>
-#             <input type="submit" value="Submit" />
-#         </form>
-#         '''
-
-
-# My word counter app
-# @app.route('/predictor', methods=['POST'])
-# def predictor():
-#     # getting input data
-#     input_text = str(request.form['text'])
-#     number_of_bedrooms = int(request.form['rooms'])
-#     number_of_bathrooms = int(request.form['bathrooms'])
-#     zip_code = str(request.form['zip'])
-#     home_size_sq_ft = float(request.form['sqf'])
-#     current_listing_price = float(request.form['input_price'])
-#     X_stem_lem = vectorizer.transform([input_text])
-#     # additional stop words
-#
-#     #
-#     df =create_dataframe_webapp(zip_codes,
-#                                 non_text_features,
-#                                 additional_stop_words,
-#                                 input_text,
-#                                 zip_code,
-#                                 home_size_sq_ft,
-#                                 number_of_bedrooms,
-#                                 number_of_bathrooms,
-#                                 current_listing_price,
-#                                 vectorizer)
-#
-#
-#     price_ratio = rf_zip_full_dict_400_50_7.predict(df.values)[0]
-#     sale_price =  price_ratio * current_listing_price
-#
-#     return "Our model estimates the sale price will be  %s, which is %s times the asking price." % (sale_price , price_ratio)
-#
+        feature_dataframe = None
+    if feature_dataframe == None:
+        return render_template('view.html', form=form, price_ratio=price_ratio, sale_price=sale_price, features=None)
+    else:
+        return render_template('view.html', form=form, price_ratio=price_ratio, sale_price=sale_price, features=feature_dataframe.to_html())
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080, debug=True)
