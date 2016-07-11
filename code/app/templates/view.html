@@ -1,5 +1,19 @@
-<h2>Calculate the final price</h2>
-<img src="{{url_for('static', filename='BayBridgeR.png')}}" height:100%; width:auto;/>
+<!DOCTYPE html>
+<html>
+<body>
+<link rel="stylesheet"
+      type="text/css"
+      href="/static/style.css"/>
+<div class="image">
+
+      <img src="{{url_for('static', filename='BayBridgeR.png')}}" alt="" />
+
+      <h2><span>Estimating sale price<span class='spacer'></span><br /><span class='spacer'></span>vs.</span><br /><span>asking price</span></h2>
+
+      <h3><span>This application employs data from 13,335 properties in the San Francisco, San Mateo, and Marin<br /> counties to train a model that estimates the final asking price of a property. <br /> It allows the user to input the agent’s description, zip code, number of bedrooms, number of bathrooms,<br /> and size of the property that they are interested in. <br />(Note this model provides only an estimate).</span> </h3>
+
+</div>
+
 <form method=post action="">
 <table>
   {% for field in form %}
@@ -8,10 +22,14 @@
     </tr>
   {% endfor %}
 </table>
-<p><input type=submit value=Calculate></form></p>
+<p><input type=submit value="Calculate estimate"></form></p>
 <p>
 {% if sale_price != None %}
-Our model estimates the sale price will be {{sale_price}} which is {{ price_ratio }} times the asking price.</td>
+Our model estimates the sale price will be ${{sale_price}} which is {{ price_ratio }} times the asking price.</td>
+</p>
+
+<p>
+The Agent's text is: {{form.text.data}}
 </p>
 <p>
 Below are a table of expressions tokenized from your input text.
@@ -22,3 +40,6 @@ in all data (13,335).
 {{features | safe}}
 </p>
 {% endif %}
+
+</html>
+</body>
