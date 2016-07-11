@@ -1,18 +1,24 @@
 <h2>Calculate the final price</h2>
-<img src="HouseCanary_Logo.jpg" alt="logo">
+<img src="{{url_for('static', filename='BayBridgeR.png')}}" height:100%; width:auto;/>
 <form method=post action="">
 <table>
   {% for field in form %}
     <tr>
     <td>{{ field.label }}</td><td>{{ field }}</td>
-
     </tr>
   {% endfor %}
 </table>
-<p><input type=submit value=Compute></form></p>
-
+<p><input type=submit value=Calculate></form></p>
 <p>
 {% if sale_price != None %}
-Our model estimates the sale price will be {{sale_price}}  which is {{ price_ratio }} times the asking price.</td>
-{% endif %}
+Our model estimates the sale price will be {{sale_price}} which is {{ price_ratio }} times the asking price.</td>
 </p>
+<p>
+Below are a table of expressions tokenized from your input text.
+Note that the "importance" of an expression is a combination of how
+far the price_ratio with the expression is different from the average
+price_ratio for all data (1.065) and how often the expression occurs
+in all data (13,335).
+{{features | safe}}
+</p>
+{% endif %}

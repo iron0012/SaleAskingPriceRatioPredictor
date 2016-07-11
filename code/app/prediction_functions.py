@@ -166,7 +166,7 @@ def features_present(vectorizer, input_text):
                  )
 
 
-def Create_text_feat_imp_Dataframe(features_present_list, feature_importances_dict):
+def Create_text_feat_imp_Dataframe(features_present_list, feature_importances_dict, df_X_regr_all, df_feature_occurrence):
     '''Create Dataframe of Text_features_present, Feature_importances, average sale-price/asking-price ratio for a
     particular text_feature, occurrences.
     Input:
