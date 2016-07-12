@@ -1,5 +1,4 @@
 # Sale price vs. asking price of real estate in San Francisco, San Mateo, and Marin counties.
-
 Overview
 ========
 Background
@@ -96,3 +95,8 @@ Examples of interesting text features *(More will be added here to elaborate why
 2.  When the basic features of a property (zip code, number of bedrooms, number of bathrooms, home size, and asking price) are included, the model accuracy improves to 0.134.  
 
 3.	A webapp was constructed to allow the user to enter these parameters and estimate the sale price of a home they are intersted in.
+
+Acknowledgments
+===============
+- Brittany Murphy, Keying Ye for data and analysis.
+- Francesco Ciuci for webapp/flask.
