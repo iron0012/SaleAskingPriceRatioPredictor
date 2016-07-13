@@ -3,7 +3,7 @@ from nltk.stem.snowball import SnowballStemmer
 from nltk.stem import WordNetLemmatizer
 from nltk.corpus import stopwords
 import pandas as pd
-from wtforms import Form, FloatField, validators, StringField, IntegerField
+from wtforms import Form, FloatField, validators, StringField, IntegerField, TextAreaField
 import cPickle as pickle
 
 
@@ -19,24 +19,24 @@ zip_codes = pickle.load(open(filepath_zip, 'rb'))
 
 
 class InputForm(Form):
-    text = StringField(
-        label='Agent\'s comment', default="",
-        validators=[validators.InputRequired()])
+    current_listing_price = FloatField(
+        label='Asking price :',
+        validators = [validators.AnyOf(zip_codes)])
     number_of_bedrooms = IntegerField(
-        label='Number of bedrooms',
+        label='Number of bedrooms :',
         validators=[validators.InputRequired()])
     number_of_bathrooms = FloatField(
-        label='Number of bathrooms',
+        label='Number of bathrooms :',
         validators=[validators.InputRequired()])
     home_size_sq_ft = FloatField(
-        label = 'Size of the home in square feet',
+        label = 'Size of the home in square feet :',
         validators=[validators.InputRequired()])
     zip_code = StringField(
-        label='Zip code', default="",
+        label='Zip code :', default="",
         validators=[validators.InputRequired()])
-    current_listing_price = FloatField(
-        label='Current listing price',
-        validators = [validators.AnyOf(zip_codes)])
+    text = TextAreaField(
+        label='Agent\'s comment :', default="",
+        validators=[validators.InputRequired()])
 
 
 
@@ -202,4 +202,7 @@ def Create_text_feat_imp_Dataframe(features_present_list, feature_importances_di
                                    inplace = True,
                                    ascending = False
                                   )
+    df_feature_present = df_feature_present.reset_index(col_fill=['Text feature'])
+    df_feature_present.columns = ['Text feature', 'Feature importance', 'Sale-price/asking-price ratio', 'Occurrences in the training data']
+
     return df_feature_present

@@ -4,56 +4,73 @@
 <link rel="stylesheet"
       type="text/css"
       href="/static/style.css"/>
-<div class="image">
+<div class="fixed-bg">
+      <h2><span>Estimating home sale price</span><br /><span>vs.</span><br /><span>asking price</span></h2>
 
-      <img src="{{url_for('static', filename='BayBridgeR.png')}}" alt="" />
-
-      <h2><span>Estimating home sale price<span class='spacer'></span><br /><span class='spacer'></span>vs.</span><br /><span>asking price</span></h2>
-
-      <h3><span>This application employs data from 13,335 properties in the San Francisco, San Mateo, and Marin
-          <br /> counties to train a model that estimates the final asking price of a property.
-          <br /> It allows the user to input the agent’s description, zip code, number of bedrooms, number of bathrooms,
-          <br /> and size of the property that they are interested in.
-          <br />(Note this model provides only an estimate. Because the final price of a home involves many external factors, we provide no legal guarantee).
-          <br /> Acknowledgment: Brittany Murphy, Keying Ye for data and analysis, Francesco Ciuci for webapp/flask
+      <h3><span>This application employs data from 13,335 properties in the San Francisco, San Mateo, and Marin counties to train a model that estimates the final asking price of a property.It allows the user to input the agent’s description, zip code, number of bedrooms, number of bathrooms, and size of the property that they are interested in. (Note this model provides only an estimate. Because the final price of a home involves many external factors, we provide no legal guarantee).
+      <br /> Acknowledgment: Brittany Murphy, Keying Ye for data and analys
       </span> </h3>
-
 </div>
 
-<form method=post action="">
-<table>
-  {% for field in form %}
-    <tr>
-    <td>{{ field.label }}</td><td>{{ field }}</td>
-    </tr>
-  {% endfor %}
-</table>
-<p><input type=submit value="Calculate estimate"></form></p>
-<p>
+
+<form action="" method="POST" class="basic-grey">
+    <h1>Property information
+        <span>Please fill all the texts in the fields.</span>
+    </h1>
+    {% for field in form %}
+    <label>
+    <span> {{field.label}}</span>
+    {{field}}
+    </label>
+    {% endfor %}
+    <label>
+   <span>&nbsp;</span>
+   <input type="submit" class="submit" value="Compute Estimation"/>
+</label>
+</form>
+
 {% if sale_price != None %}
+<div class="basic-grey" id="result">
 
-
-
-The agent's desciption is: <i>{{form.text.data}}</i>
-</p>
-
-<p>
-Our model estimates the sale price will be <b>${{sale_price}}</b> which is <b>{{ price_ratio }}</b> times the asking price.</td>
-</p>
-
-<p>
-Below is a table of expressions tokenized from your input text.
-Note that the "importance" of an expression is a combination of two factors:
-<p>
-1. How different the average price ratio of properties with the expression in
-the description is from the average price ratio for all data (1.065)
-</p>
-<p>
-2. How often the expression occurs
-in all data (13,335 properties).
-{{features | safe}}
-</p>
+{% if scroll %}
+<script>
+    document.getElementById('{{ scroll }}').scrollIntoView();
+    // or
+    document.location.hash = '#' + '{{ scroll }}';
+</script>
 {% endif %}
+
+<h2> The agent's desciption is:
+  <span>{{form.text.data}}</span>
+</h2>
+
+<h2> Estimation result:
+<span>Our model estimates the sale price will be <b>${{sale_price}}</b> which is <b>{{ price_ratio }}</b> times the asking price.</span>
+</h2>
+
+<h2>
+
+Tokenized words
+
+<span>Below is a table of expressions tokenized from your input text.
+Note that the "importance" of an expression is a combination of two factors:
+</span>
+
+<span>1. How different the average price ratio of properties with the expression in
+the description is from the average price ratio for all data (1.065)
+</span>
+
+<span>
+2. How often the expression occurs in all data (13,335 properties).
+</span>
+</h2>
+
+<h3>
+{{features | safe}}
+</h3>
+
+{% endif %}
+</div>
 
 </html>
 </body>

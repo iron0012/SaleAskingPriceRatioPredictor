@@ -12,6 +12,31 @@ from prediction_functions import *
 import cPickle as pickle
 app = Flask(__name__)#,  static_url_path = "/./static", static_folder = "static")
 
+
+#
+# Ciao Francesco:  The meeting went well, and Brittany (my supervisor) like the app.  Thanks very much.
+#
+# [9:23 PM]
+# I just have some suggestions for make the webapp look even bettter:
+#
+# [9:24 PM]
+# 1.  Can we make the box to enter the text a lot bigger?
+#
+# [9:24 PM]
+#
+# [9:25 PM]
+
+#
+# [9:26 PM]
+# Thats it.
+#
+# [9:26 PM]
+# I am wondering if you time to talk on Wednesday night your time to go through your code and help me understand how it work?  If so, please let me know what time is good for you.
+#
+# [9:27 PM]
+# Thanks!!!
+
+
 #load trained random forest
 filepath = 'rf_zip_full_dict_400_50_7.gzip'
 rf_zip_full_dict_400_50_7 = pickle.load(gzip.open(filepath, 'rb'))
@@ -68,7 +93,7 @@ def index():
         feature_dataframe = Create_text_feat_imp_Dataframe(features_present_list, feature_importances_dict, df_X_regr_all, df_feature_occurrence)
         sale_price = str(int(sale_price))
         price_ratio =str(price_ratio)[0:5]
-        return render_template('view.html', form=form, price_ratio=price_ratio, sale_price=sale_price, features=feature_dataframe.to_html())
+        return render_template('view.html', form=form, price_ratio=price_ratio, sale_price=sale_price, features=feature_dataframe.to_html(), scroll="result")
     else:
         price_ratio = None
         sale_price = None
@@ -76,4 +101,4 @@ def index():
         return render_template('view.html', form=form, price_ratio=price_ratio, sale_price=sale_price, features=None)
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8022, debug=True)
+    app.run(host='0.0.0.0', port=8036, debug=True)
