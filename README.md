@@ -134,7 +134,7 @@ Note that these features have been 'stemmed' and 'lemmatized,' which means they 
 
 2.  When the basic features of a property (zip code, number of bedrooms, number of bathrooms, home size, and asking price) are included, the model accuracy improves to 0.134.
 
-3.	A web app was constructed to allow potential buyers to enter these parameters and obtain an estimate of the sale price of a home they are evaluating.  *To run the web app, git clone the folders, go to the code fold, and run "app.py" with your python interpreter.   Make sure you have already had the following libraries installed: numpy, pandas, nltk, sklearn.ensemble, sklearn.feature_extraction.text, gzip, pickle, flask, and wtforms. *
+3.	A web app was constructed to allow potential buyers to enter these parameters and obtain an estimate of the sale price of a home they are evaluating.  *To run the web app, git clone the folders, go to the code fold, and run "app.py" with your python interpreter.   Make sure you have already had the following libraries installed: numpy, pandas, nltk, sklearn.ensemble, sklearn.feature_extraction.text, gzip, pickle, flask, and wtforms. Open you brower and enter "http://localhost:8037"*
 
 **Future directions**
 ===============
