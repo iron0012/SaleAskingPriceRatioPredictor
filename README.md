@@ -42,7 +42,7 @@ Vectorization of the agents' descriptions of the property
 - stopwords = nltk's stopwords.words('english')
 - Manually removed the following tokenized features that are obviously irrelevant:
 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday', 'offer', 'account', 'disclosur', 'due', 'date', 'sfar', 'broker tour', 'pm', 'offer review', 'tour', 'offer date', 'offer due', 'pre', 'accept', 'call',
-'close', 'pleas call', 'noon', 'open', 'price', 'yr', 'zestim', 'zestim accur', 'zestim forecast', 'zestim forecastcr', 'zestim home', 'zestim owner', 'zestim rent', 'zestim see', 'zestim valu', 'zestim zestim', 'zestim zillow', 'zillow', 'zillow estim', 'zillow valu', 'home', 'bedroom', 'room', 'bathroom'.
+'close', 'pleas call', 'noon', 'open', 'price', 'yr', 'zestim', 'zestim accur', 'zestim forecast', 'zestim forecastcr', 'zestim home', 'zestim owner', 'zestim rent', 'zestim see', 'zestim valu', 'zestim zestim', 'zestim zillow', 'zillow', 'zillow estim', 'zillow valu'.
 
 Modeling
 --------
@@ -118,7 +118,7 @@ Here we discuss some examples of text features that we found interesting.  Note 
 ![Beach violin plots](images/BEACH_violin_plot.png>)
 
 'OCEAN', average price ratio = 1.032, occurrence = 567.
-- In a hot market like the Bay Area's, it is difficult to find tokenized text features that indicate a "below average" property.  However, here are a couple: living near a *beach* or the *ocean* would normally be considered desirable, but this is not born out by our data from the Bay Area.  Little known to outsiders, few people go to the beach here.  In fact, the famous San Francisco fog and wind are extra severe at the ocean front.  Moreover, it takes longer to commute from the beach to work whether by car or by public transportation.  With an average price ratio that is 3.6% (for 'beach') or 3.0% (for 'ocean') *lower* than the overall average of 1.064, it means a typical property of $1.24M with 'beach' or 'ocean' in the description would decrease by $48k or $40k, respectively.
+- In a hot market like the Bay Area's, it is difficult to find tokenized text features that indicate a "below average" property.  However, we have identified a couple: living near a *beach* or the *ocean* would normally be considered desirable, but this is not in the Bay Area.  Little known to outsiders, few people go to the beach here.  In fact, the famous San Francisco fog and wind are extra severe at the ocean front.  Moreover, it takes longer to commute from the beach to work whether by car or by public transportation.  With an average price ratio that is 3.6% *lower* (for 'beach') or 3.0% *lower* (for 'ocean') than the overall average of 1.064, it means you can save money by bidding $48k or $40k, respectively, *lower* on a typical property of $1.24M with 'beach' or 'ocean' in the description than you would otherwise.
 
 - Description of a property that sold for only 0.85x the asking price:
   *"Calling all Buyers what a great Location (4 Bedrooms 2 Bathrooms) 2BR/1 bath up and 2 BR/1 Bath down in Outer Sunset area! Close to transportation 2blks away and taraval, Blocks away from schools and shopping. Ocean Beach is nearby. What more can you ask for? Great Home! As IS sale, Tenant occupied."*
