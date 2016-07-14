@@ -1,4 +1,4 @@
-# Sale price vs. asking price of real estate in San Francisco, San Mateo, and Marin counties.
+# Sale price vs. asking price of real estate in San Francisco, San Mateo, and Marin counties
 Overview
 ========
 Background
