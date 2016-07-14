@@ -1,4 +1,6 @@
 # Sale price vs. asking price of real estate in San Francisco, San Mateo, and Marin counties.
+Will Tong, Data Scientist
+---------------------------
 Overview
 ========
 Background
@@ -74,7 +76,7 @@ Selected examples of interesting text features
 
 Here we discuss some examples of text features that we found interesting.  Note that these features have been 'stemmed' and 'lemmatized,' which means they have been converted to the pseudo-roots of the words to facilitate grouping of the same types of words.  They are not mispelled or typographically errors.
 
-HDWD FLRS', average price ratio = 1.123, occurrence = 64.
+'HDWD FLRS', average price ratio = 1.123, occurrence = 64.
 
 - It is well known in San Francisco that hardwood floors are more desirable over carpeted floors.  They are healthier and add class to the home.  With the average price ratio being 5.5% higher the overall average of 1.064, they presence in the description implies a $68,000 increase in a property's asking price on the average.
 
@@ -93,7 +95,7 @@ HDWD FLRS', average price ratio = 1.123, occurrence = 64.
 
 ![Trust violin plots](images/TRUST_violin_plot.png>)
 
-OPPORTUN, price ratio = 1.083, occurrence = 836.
+'OPPORTUN', price ratio = 1.083, occurrence = 836.
 
 - It appears that when agents describes a property as an 'opportunity', they generally mean it.  On the average, properties with 'OPPORTUN' in the description go for 1.082x the asking price, which is 1.8% higher the avearge.  This translates into about $12k for the avearge house.  
 
@@ -110,7 +112,7 @@ OPPORTUN, price ratio = 1.083, occurrence = 836.
 ![shop restaur violin plots](images/SHOP RESTAUR_violin_plot.png>)
 
 
-BEACH', average price ratio = 1.025, occurrence = 458.
+'BEACH', average price ratio = 1.025, occurrence = 458.
 - (See explanation for 'OCEAN' below)
 
 ![Beach violin plots](images/BEACH_violin_plot.png>)
