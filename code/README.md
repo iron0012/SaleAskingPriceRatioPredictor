@@ -53,11 +53,11 @@ Modeling
 ![Price ratio vs. number of bedrooms](images/Price_ratio_vs_bedrooms.png>)
 ![Price ratio vs. number of bathrooms](images/Price_ratio_vs_bathrooms.png>)
 
-- In general the accuracy does not improve beyond 400 trees (number of estimators). We fixed the minimum number of samples in newly created leaves to be the square root of maxiumum feature size.  
+- In general the accuracy does not improve beyond 400 trees (number of estimators). We fixed the minimum number of samples in newly created leaves to be the square root of maxiumum feature size.
 
 - Maximum features used per tree (max_features) = 0.8
 
-- The accuracies of random forest models at different *max feature size* and *min leaves* with text features only, basic features only, and both text and basic features are listed in the table below.  
+- The accuracies of random forest models at different *max feature size* and *min leaves* with text features only, basic features only, and both text and basic features are listed in the table below.
 	1. With the tokenized text features only, the accuracy of our trained model on a hold-out set of data is 0.103.
 	2. The accuracy of a model with only the *basic features* is 0.124.
 	3. The accuracy improves to 0.134 if the *basic features* of the property are included in the model.  (Basic features are : zip code, home size (sq. ft.), number of bedrooms, number of bathrooms, and asking price.)
@@ -97,14 +97,14 @@ Here we discuss some examples of text features that we found interesting.  Note 
 
 'OPPORTUN', price ratio = 1.083, occurrence = 836.
 
-- It appears that when agents describe a property as an 'opportunity', they generally mean it.  On average, properties with 'OPPORTUN' in the description go for 1.082x the asking price, which is 1.8% higher the average.  This translates into about $12k increase for an average property.  
+- It appears that when agents describe a property as an 'opportunity', they generally mean it.  On average, properties with 'OPPORTUN' in the description go for 1.082x the asking price, which is 1.8% higher the average.  This translates into about $12k increase for an average property.
 
 - Desciption of a property that was sold for 1.20x the asking price with 'OPPORTUN' in the description:
 *"This is the next up and coming area. Don't miss out on the opportunity. Amazingly affordable home with character, fantastic sunny weather, easy commute: only one block from the 3rd St. Rail, 2 blocks from freeways, This home is filled with old world charm &  character not made anymore. The Bay Windows in the spacious living room & elegant bedroom boast a charming decorative bench. Lg eat in kitchen"*
 
 ![Opportun violin plots](images/OPPORTUN_violin_plot.png>)
 
-'SHOP RESTAUR', average price ratio = 1.089, occurrence = 244.  
+'SHOP RESTAUR', average price ratio = 1.089, occurrence = 244.
 - Many consider living near shops and restaurants to be highly desirable, especially for young professionals in an urban setting, so it is not surprising that 'shop restaur' has an above average price ratio of 1.089.  That means an average property that has an asking price of $1.24M can fetch $15k if it has 'SHOP RESTAUR' in its description.
 
 - Description of a property that sold for only 1.48x the asking price: *"Incredible Value in the Heart of Potrero Hill! This Diamond in the Rough has Endless Possibilities! Specious Four Bedrooms with Three Full Baths has The Blank Canvas you've been Looking for. Close to Shopping, Restaurants, Cafes, and an Easy Commute. Though it needs a Little Bit of Everything... It has the Perfect location! Lots of Space to Let Your Imagination Run Wild."*
@@ -130,7 +130,7 @@ Here we discuss some examples of text features that we found interesting.  Note 
 ===============
 1. A Random Forest Model trained by featurized texts of an agent's description to predict the sales/asking price ratio has an accuracy of 0.103.  This means 0.13 of the price ratio variance can be explained by the description.
 
-2.  When the basic features of a property (zip code, number of bedrooms, number of bathrooms, home size, and asking price) are included, the model accuracy improves to 0.134.  
+2.  When the basic features of a property (zip code, number of bedrooms, number of bathrooms, home size, and asking price) are included, the model accuracy improves to 0.134.
 
 3.	A web app was constructed to allow potential buyers to enter these parameters and obtain an estimate of the sale price of a home they are evaluating.
 
