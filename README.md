@@ -74,7 +74,9 @@ Modeling
 Selected examples of interesting text features
 ----------------------------------------------
 
-Here we discuss some examples of text features that we found interesting.  Note that these features have been 'stemmed' and 'lemmatized,' which means they have been converted to the pseudo-roots of the words to facilitate grouping of the same types of words.  They are not mispelled or typographical errors.
+Here we discuss some examples of text features that we found interesting.  The violin plots represent the distributions of the price ratios of properties *with* the text features on the left, and of the properties *without* the text features on the right.
+
+Note that these features have been 'stemmed' and 'lemmatized,' which means they have been converted to the pseudo-roots of the words to facilitate grouping of the same types of words.  They are not misspelled or typographical errors.
 
 'HDWD FLRS', average price ratio = 1.123, occurrence = 64.
 
