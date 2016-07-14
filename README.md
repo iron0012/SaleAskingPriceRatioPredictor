@@ -107,7 +107,7 @@ Note that these features have been 'stemmed' and 'lemmatized,' which means they 
 ![Opportun violin plots](images/OPPORTUN_violin_plot.png>)
 
 'SHOP RESTAUR', average price ratio = 1.089, occurrence = 244.
-- Many consider living near shops and restaurants to be highly desirable, especially for young professionals in an urban setting, so it is not surprising that 'shop restaur' has an above average price ratio of 1.089.  That means an average property that has an asking price of $1.24M can fetch $15k if it has 'SHOP RESTAUR' in its description.
+- Many consider living near shops and restaurants to be highly desirable, especially for young professionals in an urban setting, so it is not surprising that 'shop restaur' has an above average price ratio of 1.089.  That means a property that has 'SHOP RESTAUR' in its description can fetch an extra $15k, on average.
 
 - Description of a property that sold for only 1.48x the asking price: *"Incredible Value in the Heart of Potrero Hill! This Diamond in the Rough has Endless Possibilities! Specious Four Bedrooms with Three Full Baths has The Blank Canvas you've been Looking for. Close to Shopping, Restaurants, Cafes, and an Easy Commute. Though it needs a Little Bit of Everything... It has the Perfect location! Lots of Space to Let Your Imagination Run Wild."*
 
