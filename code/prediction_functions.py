@@ -203,6 +203,6 @@ def Create_text_feat_imp_Dataframe(features_present_list, feature_importances_di
                                    ascending = False
                                   )
     df_feature_present = df_feature_present.reset_index(col_fill=['Text feature'])
-    df_feature_present.columns = ['Text feature', 'Feature importance', 'Sale-price/asking-price ratio', 'Occurrences in the training data']
+    df_feature_present.columns = ['Text feature', 'Feature importance (10^-3)', 'Sale-price/asking-price ratio', 'Occurrences in the training data']
 
     return df_feature_present
