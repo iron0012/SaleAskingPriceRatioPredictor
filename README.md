@@ -90,7 +90,7 @@ Note that these features have been 'stemmed' and 'lemmatized,' which means they 
 
 'TRUST' price ratio = 1.13, occurrence = 181.
 
-- A 'trust sale' usually occurs when the owner passes away.   These properties tend to be priced lower to promote quick sales.  For example, the typical asking price for properties with 'trust' in the description is $872,318, which is well below the average asking price of $1.27M.  However, since the asking prices are so low, the buyers must be prepared to bid considerably higher than the average 1.064x the asking price.  Our data indicate that typical sale price is 1.13x or almost $100k above asking!
+- A 'trust sale' usually occurs when the owner passes away.   These properties tend to be priced lower to promote quick sales.  For example, the typical asking price for properties with 'trust' in the description is $872,318, which is well below the average asking price of $1.24M.  However, since the asking prices are so low, the buyers must be prepared to bid considerably higher than the average 1.064x the asking price.  Our data indicate that typical sale price is 1.13x or almost $100k above asking!
 
 - Description of a property that was sold for 1.27x asking price: *"Successor Trustee Sale sold in AS IS Condition. Owner died in the home of natural causes. Buyer shall pay transfer tax and all cost associated with city/county water, energy, hot water heater and smoke detector ordinances.  Submit fully signed discl packet w/offer using the CAR Purchase Agreement, Trust Advisory and SFAR AS IS Addendum.  Pre-escrow is opened with Gerrie at Chicago on Market Street.  Offers will be reviewed as received after 12PM on Tuesday June 10th.
 "*
@@ -134,12 +134,12 @@ Note that these features have been 'stemmed' and 'lemmatized,' which means they 
 
 2.  When the basic features of a property (zip code, number of bedrooms, number of bathrooms, home size, and asking price) are included, the model accuracy improves to 0.134.
 
-3.	A web app was constructed to allow potential buyers to enter these parameters and obtain an estimate of the sale price of a home they are evaluating.
+3.	A web app was constructed to allow potential buyers to enter these parameters and obtain an estimate of the sale price of a home they are evaluating.  *To run the web app, git clone the folders, go to the code fold, and run "app.py" with your python interpreter.   Make sure you have already had the following libraries installed: numpy, pandas, nltk, sklearn.ensemble, sklearn.feature_extraction.text, gzip, pickle, flask, and wtforms. *
 
 **Future directions**
 ===============
-In retrospect, we have selected a data set that is not representative of the national trends.   The San Francisco Bay Area is a very hot housing market, as reflected by the higher-than-average sale/asking price ratio (1.065) and asking price ($1.26M).   One can surmise that the mood of all the agents was very optimistic and positive, thus making it difficult to apply more profound NLP techniques such as sentimental analysis effectively.   Future work should be done on a data set from an area where there is a more equitable market (average sale/asking price ratio ~ 1).
+In retrospect, we have selected a data set that is not representative of the national trends.   The San Francisco Bay Area is a very hot housing market, as reflected by the higher-than-average sale/asking price ratio (1.065) and asking price ($1.24M).   One can surmise that the mood of all the agents was very optimistic and positive, thus making it difficult to apply more profound NLP techniques such as sentimental analysis effectively.   Future work should be done on a data set from an area where there is a more equitable market (average sale/asking price ratio ~ 1).
 
 Acknowledgments
 ===============
-- I'd like to acknowledge Brittany Murphy and Keying Ye of Housecanary for their guidance in their analysis, and Francesco Ciuci for setting up the web app with python/flask.
+- I'd like to gratefully acknowledge Brittany Murphy and Keying Ye of Housecanary for their guidance in the analysis, and Francesco Ciuci for setting up the web app with python/flask.
