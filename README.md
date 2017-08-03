@@ -30,7 +30,7 @@ Data
 - Zip code, home size, number of bedrooms, number of bathrooms, and asking prices are included in the training data.
 - The average asking price of all properties is $1.24M. The median asking price is $899,000.
 - The average price ratio of all properties is 1.064.  However, there is a large concentration at price ratio = 1, indicating that many buyers just pay the asking prices for the properties.
-![Distibution of price ratio](https://github.com/williamtong/SaleAskingPriceRatioPredictor/tree/master/images/price_ratio_distribution.png>)
+![Distibution of price ratio](https://github.com/williamtong/SaleAskingPriceRatioPredictor/tree/master/images/price_ratio_distribution.png)
 
 Vectorization of the agents' descriptions of the property
 ----
@@ -49,9 +49,9 @@ Modeling
 - We experimented with scikitlearn's RandomForestRegressor and GradientBoostingRegressor, but decided to focused on the RandomForestRegressor because the results between the two models are very similar.
 
 - We included other basic property features such as the zip code, number of bedrooms, number of bathrooms, home size (sq. ft.), and asking price because we know from previous experience that they have predictive powers that will likely reinforce the tokenized text features.  For example, we can observe that the price ratio of a property goes down as the asking price goes up.
-![Price ratio vs. asking price](https://github.com/williamtong/SaleAskingPriceRatioPredictor/tree/master/images/Price_ratio_vs_asking_price.png>)
-![Price ratio vs. number of bedrooms](https://github.com/williamtong/SaleAskingPriceRatioPredictor/tree/master/images/Price_ratio_vs_bedrooms.png>)
-![Price ratio vs. number of bathrooms](https://github.com/williamtong/SaleAskingPriceRatioPredictor/tree/master/images/Price_ratio_vs_bathrooms.png>)
+![Price ratio vs. asking price](https://github.com/williamtong/SaleAskingPriceRatioPredictor/tree/master/images/Price_ratio_vs_asking_price.png)
+![Price ratio vs. number of bedrooms](https://github.com/williamtong/SaleAskingPriceRatioPredictor/tree/master/images/Price_ratio_vs_bedrooms.png)
+![Price ratio vs. number of bathrooms](https://github.com/williamtong/SaleAskingPriceRatioPredictor/tree/master/images/Price_ratio_vs_bathrooms.png)
 
 - In general the accuracy does not improve beyond 400 trees (number of estimators). We fixed the minimum number of samples in newly created leaves to be the square root of maxiumum feature size.
 
@@ -68,7 +68,7 @@ Modeling
 	- Maximum features used per tree (max_features) = 0.8
 
 
-![Table_accuracy_scores](https://github.com/williamtong/SaleAskingPriceRatioPredictor/tree/master/images/Table_accuracy_scores.png>)
+![Table_accuracy_scores](https://github.com/williamtong/SaleAskingPriceRatioPredictor/tree/master/images/Table_accuracy_scores.png)
 
 
 Selected examples of interesting text features
@@ -85,7 +85,7 @@ Note that these features have been 'stemmed' and 'lemmatized,' which means they 
 - Description a property that was sold for 1.27x asking price:
 *"SF Marina Style loved/maintained by family approx. 68 yrs! Period cm+ Ctrl Heat, Brand New Hdwd Flrs, New Kitc Flr, New Toilet & Vanity, Fresh Paint, w/new lite fixtures! UP: 2 bed/1 ba, Frml Entry, Lg Frml Liv Rm w/Frplc, LG Frml Din rm, Cozy Bkfst Rm w/built-in cab, country-style kitchen. DOWN: 3rd bed, HUGE gar/bsmt w/workbench, laundry, storage, garden access. Great Potential!"*
 
-![hdwd flrs violin plots](https://github.com/williamtong/SaleAskingPriceRatioPredictor/tree/master/images/HDWD FLRS_violin_plot.png>)
+![hdwd flrs violin plots](https://github.com/williamtong/SaleAskingPriceRatioPredictor/tree/master/images/HDWD FLRS_violin_plot.png)
 
 
 'TRUST' price ratio = 1.13, occurrence = 181.
