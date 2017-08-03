@@ -30,7 +30,7 @@ Data
 - Zip code, home size, number of bedrooms, number of bathrooms, and asking prices are included in the training data.
 - The average asking price of all properties is $1.24M. The median asking price is $899,000.
 - The average price ratio of all properties is 1.064.  However, there is a large concentration at price ratio = 1, indicating that many buyers just pay the asking prices for the properties.
-![Distibution of price ratio](https://github.com/williamtong/SaleAskingPriceRatioPredictor/tree/master/images/price_ratio_distribution.png)
+![Distibution of price ratio](/images/price_ratio_distribution.png)
 
 Vectorization of the agents' descriptions of the property
 ----
