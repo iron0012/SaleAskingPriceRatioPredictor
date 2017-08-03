@@ -49,9 +49,9 @@ Modeling
 - We experimented with scikitlearn's RandomForestRegressor and GradientBoostingRegressor, but decided to focused on the RandomForestRegressor because the results between the two models are very similar.
 
 - We included other basic property features such as the zip code, number of bedrooms, number of bathrooms, home size (sq. ft.), and asking price because we know from previous experience that they have predictive powers that will likely reinforce the tokenized text features.  For example, we can observe that the price ratio of a property goes down as the asking price goes up.
-![Price ratio vs. asking price](https://github.com/williamtong/SaleAskingPriceRatioPredictor/tree/master/images/Price_ratio_vs_asking_price.png)
-![Price ratio vs. number of bedrooms](https://github.com/williamtong/SaleAskingPriceRatioPredictor/tree/master/images/Price_ratio_vs_bedrooms.png)
-![Price ratio vs. number of bathrooms](https://github.com/williamtong/SaleAskingPriceRatioPredictor/tree/master/images/Price_ratio_vs_bathrooms.png)
+![Price ratio vs. asking price](/images/Price_ratio_vs_asking_price.png)
+![Price ratio vs. number of bedrooms](/images/Price_ratio_vs_bedrooms.png)
+![Price ratio vs. number of bathrooms](/images/Price_ratio_vs_bathrooms.png)
 
 - In general the accuracy does not improve beyond 400 trees (number of estimators). We fixed the minimum number of samples in newly created leaves to be the square root of maxiumum feature size.
 
@@ -68,7 +68,7 @@ Modeling
 	- Maximum features used per tree (max_features) = 0.8
 
 
-![Table_accuracy_scores](https://github.com/williamtong/SaleAskingPriceRatioPredictor/tree/master/images/Table_accuracy_scores.png)
+![Table_accuracy_scores](/images/Table_accuracy_scores.png)
 
 
 Selected examples of interesting text features
@@ -85,7 +85,7 @@ Note that these features have been 'stemmed' and 'lemmatized,' which means they 
 - Description a property that was sold for 1.27x asking price:
 *"SF Marina Style loved/maintained by family approx. 68 yrs! Period cm+ Ctrl Heat, Brand New Hdwd Flrs, New Kitc Flr, New Toilet & Vanity, Fresh Paint, w/new lite fixtures! UP: 2 bed/1 ba, Frml Entry, Lg Frml Liv Rm w/Frplc, LG Frml Din rm, Cozy Bkfst Rm w/built-in cab, country-style kitchen. DOWN: 3rd bed, HUGE gar/bsmt w/workbench, laundry, storage, garden access. Great Potential!"*
 
-![hdwd flrs violin plots](https://github.com/williamtong/SaleAskingPriceRatioPredictor/tree/master/images/HDWD FLRS_violin_plot.png)
+![hdwd flrs violin plots](/images/HDWD FLRS_violin_plot.png)
 
 
 'TRUST' price ratio = 1.13, occurrence = 181.
@@ -95,7 +95,7 @@ Note that these features have been 'stemmed' and 'lemmatized,' which means they 
 - Description of a property that was sold for 1.27x asking price: *"Successor Trustee Sale sold in AS IS Condition. Owner died in the home of natural causes. Buyer shall pay transfer tax and all cost associated with city/county water, energy, hot water heater and smoke detector ordinances.  Submit fully signed discl packet w/offer using the CAR Purchase Agreement, Trust Advisory and SFAR AS IS Addendum.  Pre-escrow is opened with Gerrie at Chicago on Market Street.  Offers will be reviewed as received after 12PM on Tuesday June 10th.
 "*
 
-![Trust violin plots](images/TRUST_violin_plot.png>)
+![Trust violin plots](/images/TRUST_violin_plot.png>)
 
 'OPPORTUN', price ratio = 1.083, occurrence = 836.
 
@@ -104,20 +104,20 @@ Note that these features have been 'stemmed' and 'lemmatized,' which means they 
 - Desciption of a property that was sold for 1.20x the asking price with 'OPPORTUN' in the description:
 *"This is the next up and coming area. Don't miss out on the opportunity. Amazingly affordable home with character, fantastic sunny weather, easy commute: only one block from the 3rd St. Rail, 2 blocks from freeways, This home is filled with old world charm &  character not made anymore. The Bay Windows in the spacious living room & elegant bedroom boast a charming decorative bench. Lg eat in kitchen"*
 
-![Opportun violin plots](images/OPPORTUN_violin_plot.png>)
+![Opportun violin plots](/images/OPPORTUN_violin_plot.png>)
 
 'SHOP RESTAUR', average price ratio = 1.089, occurrence = 244.
 - Many consider living near shops and restaurants to be highly desirable, especially for young professionals in an urban setting, so it is not surprising that 'shop restaur' has an above average price ratio of 1.089.  That means a property that has 'SHOP RESTAUR' in its description can fetch an extra $15k, on average.
 
 - Description of a property that sold for only 1.48x the asking price: *"Incredible Value in the Heart of Potrero Hill! This Diamond in the Rough has Endless Possibilities! Specious Four Bedrooms with Three Full Baths has The Blank Canvas you've been Looking for. Close to Shopping, Restaurants, Cafes, and an Easy Commute. Though it needs a Little Bit of Everything... It has the Perfect location! Lots of Space to Let Your Imagination Run Wild."*
 
-![shop restaur violin plots](images/SHOP RESTAUR_violin_plot.png>)
+![shop restaur violin plots](/images/SHOP RESTAUR_violin_plot.png>)
 
 
 'BEACH', average price ratio = 1.025, occurrence = 458.
 - (See explanation for 'OCEAN' below.)
 
-![Beach violin plots](images/BEACH_violin_plot.png>)
+![Beach violin plots](/images/BEACH_violin_plot.png>)
 
 'OCEAN', average price ratio = 1.032, occurrence = 567.
 - In a hot market like the Bay Area's, it is difficult to find tokenized text features that indicate a "below average" property.  However, we have identified a couple: living near a *beach* or the *ocean* would normally be considered desirable, but this is not in the Bay Area.  Little known to outsiders, few people go to the beach here.  In fact, the famous San Francisco fog and wind are extra severe at the ocean front.  Moreover, it takes longer to commute from the beach to work whether by car or by public transportation.  With an average price ratio that is 3.6% *lower* (for 'beach') or 3.0% *lower* (for 'ocean') than the overall average of 1.064, it means you can save money by bidding $48k or $40k, respectively, *lower* on a typical property of $1.24M with 'beach' or 'ocean' in the description than you would otherwise.
@@ -125,7 +125,7 @@ Note that these features have been 'stemmed' and 'lemmatized,' which means they 
 - Description of a property that sold for only 0.85x the asking price:
   *"Calling all Buyers what a great Location (4 Bedrooms 2 Bathrooms) 2BR/1 bath up and 2 BR/1 Bath down in Outer Sunset area! Close to transportation 2blks away and taraval, Blocks away from schools and shopping. Ocean Beach is nearby. What more can you ask for? Great Home! As IS sale, Tenant occupied."*
 
-![Ocean violin plots](images/OCEAN_violin_plot.png>)
+![Ocean violin plots](/images/OCEAN_violin_plot.png>)
 
 
 **Conclusions/Summary**
