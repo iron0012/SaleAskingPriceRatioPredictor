@@ -85,7 +85,7 @@ Note that these features have been 'stemmed' and 'lemmatized,' which means they 
 - Description a property that was sold for 1.27x asking price:
 *"SF Marina Style loved/maintained by family approx. 68 yrs! Period cm+ Ctrl Heat, Brand New Hdwd Flrs, New Kitc Flr, New Toilet & Vanity, Fresh Paint, w/new lite fixtures! UP: 2 bed/1 ba, Frml Entry, Lg Frml Liv Rm w/Frplc, LG Frml Din rm, Cozy Bkfst Rm w/built-in cab, country-style kitchen. DOWN: 3rd bed, HUGE gar/bsmt w/workbench, laundry, storage, garden access. Great Potential!"*
 
-![hdwd flrs violin plots](/images/HDWD FLRS_violin_plot.png)
+![hdwd flrs violin plots](/images/HDWD_FLRS_violin_plot.png)
 
 
 'TRUST' price ratio = 1.13, occurrence = 181.
