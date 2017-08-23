@@ -111,7 +111,7 @@ Note that these features have been 'stemmed' and 'lemmatized,' which means they 
 
 - Description of a property that sold for only 1.48x the asking price: *"Incredible Value in the Heart of Potrero Hill! This Diamond in the Rough has Endless Possibilities! Specious Four Bedrooms with Three Full Baths has The Blank Canvas you've been Looking for. Close to Shopping, Restaurants, Cafes, and an Easy Commute. Though it needs a Little Bit of Everything... It has the Perfect location! Lots of Space to Let Your Imagination Run Wild."*
 
-![shop restaur violin plots](/images/SHOP RESTAUR_violin_plot.png)
+![shop restaur violin plots](/images/SHOP_RESTAUR_violin_plot.png)
 
 
 'BEACH', average price ratio = 1.025, occurrence = 458.
