@@ -15,9 +15,9 @@ Background
 
 Executive summary
 -----------------
-1. With the tokenized text features only, the accuracy for a hold-out set of data for our trained model is 0.103.
-2. The accuracy improves to 0.134 if the *basic features* of the property are included in the model.  (Basic features are: zip code, home size (sq. ft.), number of bedrooms, number of bathrooms, and asking price.)
-3. The accuracy of a model that employs only the *basic features* is 0.124.
+1. With the tokenized text features only, R^2 for a hold-out set of data for our trained model is 0.103.
+2. R^2 improves to 0.134 if the *basic features* of the property are included in the model.  (Basic features are: zip code, home size (sq. ft.), number of bedrooms, number of bathrooms, and asking price.)
+3. R^2 of a model that employs only the *basic features* is 0.124.
 
 This means the tokenized agents’ descriptions by themselves can explain 10.3% of the variance in the predictions.  While this score may seem low at first glance, it is not surprising because the price ratio is determined by many factors which are only partly or not at captured by the agents' descriptions at all. These factors include the economy and the buyers' state of mind and finances.  Also, the San Francisco Bay Area market is heavily skewed toward optimism, so it is extra challenging to distinguish the sentiments of the agent.   Our study shows that the agents' descriptions have some predictive values for the price ratio.  Further work in the future should focus on an area where the housing market is less skewed (i.e., where the average price ratio ~ 1).
 
@@ -53,14 +53,14 @@ Modeling
 ![Price ratio vs. number of bedrooms](/images/Price_ratio_vs_bedrooms.png)
 ![Price ratio vs. number of bathrooms](/images/Price_ratio_vs_bathrooms.png)
 
-- In general the accuracy does not improve beyond 400 trees (number of estimators). We fixed the minimum number of samples in newly created leaves to be the square root of maxiumum feature size.
+- In general R^2 does not improve beyond 400 trees (number of estimators). We fixed the minimum number of samples in newly created leaves to be the square root of maxiumum feature size.
 
 - Maximum features used per tree (max_features) = 0.8
 
 - The accuracies of random forest models at different *max feature size* and *min leaves* with text features only, basic features only, and both text and basic features are listed in the table below.
-	1. With the tokenized text features only, the accuracy of our trained model on a hold-out set of data is 0.103.
-	2. The accuracy of a model with only the *basic features* is 0.124.
-	3. The accuracy improves to 0.134 if the *basic features* of the property are included in the model.  (Basic features are: zip code, home size (sq. ft.), number of bedrooms, number of bathrooms, and asking price.)
+	1. With the tokenized text features only, R^2 of our trained model on a hold-out set of data is 0.103.
+	2. The R^2 of a model with only the *basic features* is 0.124.
+	3. R^2 improves to 0.134 if the *basic features* of the property are included in the model.  (Basic features are: zip code, home size (sq. ft.), number of bedrooms, number of bathrooms, and asking price.)
 - Based on the results in the table below, we decided to employ the following parameters:
 	- Number of estimators = 400
 	- Max feature size = 50
